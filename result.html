@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 100px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .genuine {
+            color: green;
+        }
+
+        .fake {
+            color: red;
+        }
+
+        .confidence {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #444;
+        }
+
+        .review {
+            font-style: italic;
+            color: #555;
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+
+        <p class="review">{{ review }}</p>
+
+        <p class="result {% if result == 'genuine' %}genuine{% else %}fake{% endif %}">
+            This review is <strong>{{ result.upper() }}</strong>
+        </p>
+
+        <p class="confidence">Confidence: {{ confidence }}%</p>
+
+        <a href="/" class="back-link">Try Another Review</a>
+    </div>
+</body>
+</html>
